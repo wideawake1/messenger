@@ -37,9 +37,7 @@ app.use(express.json());
 // app.use(helmet.referrerPolicy());
 // app.use(helmet.xssFilter());
 app.use(morgan("common"))
-app.use(cors({
-    origin: 'https://stole-oyster.cyclic.app/',
-}))
+app.use(cors())
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
