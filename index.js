@@ -24,7 +24,18 @@ mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:
 //var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.use("/images",express.static(path.join(__dirname,"public/images")))
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet())
+// app.use(helmet.contentSecurityPolicy());
+// app.use(helmet.dnsPrefetchControl());
+// app.use(helmet.expectCt());
+// app.use(helmet.frameguard());
+// app.use(helmet.hidePoweredBy());
+// app.use(helmet.hsts());
+// app.use(helmet.ieNoOpen());
+// app.use(helmet.noSniff());
+// app.use(helmet.permittedCrossDomainPolicies());
+// app.use(helmet.referrerPolicy());
+// app.use(helmet.xssFilter());
 app.use(morgan("common"))
 app.use(cors({
     origin: 'https://stole-oyster.cyclic.app/',
