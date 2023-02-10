@@ -108,6 +108,7 @@ router.get("/find/:id",async(req,res)=>{
 //get timeline posts
 
 router.get("/timeline/:userId",async(req,res)=>{
+    console.log("you are in here")
   
     try {
         const currentUser=await User.findById(req.params.userId);
@@ -117,6 +118,7 @@ router.get("/timeline/:userId",async(req,res)=>{
                return Post.find({userId:friendId})
             })
         )
+        console.log(friendPosts)
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
