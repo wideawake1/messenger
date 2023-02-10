@@ -8,6 +8,10 @@ router.post("/",async(req,res)=>{
     const newPost=new Post(req.body)
     try {
         const savedPost=await newPost.save();
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+        res.setHeader('Access-Control-Allow-Credentials', true); 
         res.status(200).json(savedPost)
         
     } catch (error) {
@@ -113,6 +117,10 @@ router.get("/timeline/:userId",async(req,res)=>{
                return Post.find({userId:friendId})
             })
         )
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+        res.setHeader('Access-Control-Allow-Credentials', true); 
         res.status(200).json(userPosts.concat(...friendPosts))
     } catch (error) {
         res.status(500).json(error)
