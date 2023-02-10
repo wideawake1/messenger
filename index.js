@@ -26,7 +26,9 @@ app.use("/images",express.static(path.join(__dirname,"public/images")))
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"))
-app.use(cors())
+app.use(cors({
+    origin: 'https://stole-oyster.cyclic.app/',
+}))
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
