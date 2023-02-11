@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:
 
 //middleware 
 //var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
-app.use("/images",express.static(path.join(__dirname,"public/images")))
+//app.use("/images",express.static(path.join(__dirname,"public/images")))
 app.use(express.json());
 // app.use(helmet())
 // app.use(helmet.contentSecurityPolicy());
@@ -60,10 +60,10 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
 
 })
 
-app.use(express.static(path.join(__dirname,'./client/build')))
-app.get("*",function(req,res){
-    res.sendFile(path.join(__dirname,'./client/build/index.html'))
-})
+// app.use(express.static(path.join(__dirname,'./client/build')))
+// app.get("*",function(req,res){
+//     res.sendFile(path.join(__dirname,'./client/build/index.html'))
+// })
 
 
 app.use("/api/users",userRoute);
